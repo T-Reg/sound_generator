@@ -25,11 +25,6 @@ public class SoundGenerator {
     private WaveTypes waveType = WaveTypes.SINUSOIDAL;
     private float rightVolume = 1, leftVolume = 1;
 
-    public void setAutoUpdateOneCycleSample(boolean autoUpdateOneCycleSample) {
-        if (generator != null)
-            generator.setAutoUpdateOneCycleSample(autoUpdateOneCycleSample);
-    }
-
     public int getSampleRate() {
         if (generator != null)
             return generator.getSampleRate();
@@ -39,11 +34,6 @@ public class SoundGenerator {
     public void setSampleRate(int sampleRate) {
         if (generator != null)
             generator.setSampleRate(sampleRate);
-    }
-
-    public void refreshOneCycleData() {
-        if (generator != null)
-            generator.createOneCycleData(true);
     }
 
     public void setLeftEarFrequency(float v) {

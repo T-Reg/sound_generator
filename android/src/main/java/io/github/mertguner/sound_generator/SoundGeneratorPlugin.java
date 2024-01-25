@@ -9,7 +9,6 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
-import io.github.mertguner.sound_generator.handlers.getOneCycleDataHandler;
 import io.github.mertguner.sound_generator.handlers.isPlayingStreamHandler;
 import io.github.mertguner.sound_generator.models.WaveTypes;
 /** SoundGeneratorPlugin */
@@ -58,9 +57,6 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
       soundGenerator.stopPlayback();
     }else if (call.method.equals("isPlaying")) {
       result.success(soundGenerator.isPlaying());
-    }else if (call.method.equals("setAutoUpdateOneCycleSample")) {
-      boolean autoUpdateOneCycleSample = call.argument("autoUpdateOneCycleSample");
-      soundGenerator.setAutoUpdateOneCycleSample(autoUpdateOneCycleSample);
     }else if (call.method.equals("setRightEarFrequency")) {
       double frequency = call.argument("frequency");
       soundGenerator.setRightEarFrequency((float)frequency);

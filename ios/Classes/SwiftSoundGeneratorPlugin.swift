@@ -62,9 +62,6 @@ public class SwiftSoundGeneratorPlugin: NSObject, FlutterPlugin {
       case "isPlaying":
         result(self.isPlaying);
         break;
-      case "setAutoUpdateOneCycleSample":
-        result(nil);
-        break;
       case "setFrequency":
         let args = call.arguments as! [String: Any]
         self.oscillator.frequency = args["frequency"] as! Double

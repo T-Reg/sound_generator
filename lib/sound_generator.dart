@@ -25,20 +25,6 @@ class SoundGenerator {
     return _onGetIsPlayingChanged;
   }
 
-  /// One cycle data changed event
-  static bool _onGetOneCycleDataHandlerInitialized = false;
-  static late Stream<List<int>> _onGetOneCycleDataHandler;
-  static Stream<List<int>> get onOneCycleDataHandler {
-    if (!_onGetOneCycleDataHandlerInitialized) {
-      _onGetOneCycleDataHandler = _onOneCycleDataHandler
-          .receiveBroadcastStream()
-          .map<List<int>>((value) => new List<int>.from(value));
-      _onGetOneCycleDataHandlerInitialized = true;
-    }
-
-    return _onGetOneCycleDataHandler;
-  }
-
   /// init function
   static Future<bool> init(int sampleRate) async {
     final bool init = await _channel
@@ -76,14 +62,6 @@ class SoundGenerator {
   static Future<int> get getSampleRate async {
     final int sampleRate = await _channel.invokeMethod('getSampleRate');
     return sampleRate;
-  }
-
-  /// Set AutoUpdateOneCycleSample
-  static void setAutoUpdateOneCycleSample(bool autoUpdateOneCycleSample) async {
-    await _channel.invokeMethod(
-        "setAutoUpdateOneCycleSample", <String, dynamic>{
-      "autoUpdateOneCycleSample": autoUpdateOneCycleSample
-    });
   }
 
   /// Set Frequency

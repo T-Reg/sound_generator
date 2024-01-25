@@ -255,7 +255,6 @@ class _MyAppState extends State<MyApp> {
       });
     });
 
-    SoundGenerator.setAutoUpdateOneCycleSample(true);
     //Force update for one time
     SoundGenerator.refreshOneCycleData();
   }
