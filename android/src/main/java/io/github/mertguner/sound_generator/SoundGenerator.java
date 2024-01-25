@@ -97,7 +97,7 @@ public class SoundGenerator {
         try {
             minSamplesSize = AudioTrack.getMinBufferSize(
                     sampleRate,
-                    AudioFormat.CHANNEL_OUT_MONO,
+                    AudioFormat.CHANNEL_OUT_STEREO,
                     AudioFormat.ENCODING_PCM_16BIT);
 
             generator = new signalDataGenerator(minSamplesSize, sampleRate);
