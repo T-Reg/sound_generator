@@ -46,14 +46,25 @@ public class SoundGenerator {
             generator.createOneCycleData(true);
     }
 
-    public void setFrequency(float v) {
+    public void setLeftEarFrequency(float v) {
         if (generator != null)
-            generator.setFrequency(v);
+            generator.setLeftEarFrequency(v);
     }
 
-    public float getFrequency() {
+    public void setRightEarFrequency(float v) {
         if (generator != null)
-            return generator.getFrequency();
+            generator.setRightEarFrequency(v);
+    }
+
+    public float getLeftEarFrequency() {
+        if (generator != null)
+            return generator.getLeftEarFrequency();
+        return 0;
+    }
+
+    public float getRightEarFrequency() {
+        if (generator != null)
+            return generator.getRightEarFrequency();
         return 0;
     }
 

@@ -27,8 +27,6 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
     channel.setMethodCallHandler(this);
     final EventChannel onChangeIsPlaying = new EventChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), isPlayingStreamHandler.NATIVE_CHANNEL_EVENT);
     onChangeIsPlaying.setStreamHandler(new isPlayingStreamHandler());
-    final EventChannel onOneCycleDataHandler = new EventChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), getOneCycleDataHandler.NATIVE_CHANNEL_EVENT);
-    onOneCycleDataHandler.setStreamHandler(new getOneCycleDataHandler());
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -45,8 +43,6 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
     channel.setMethodCallHandler(new SoundGeneratorPlugin());
     final EventChannel onChangeIsPlaying = new EventChannel(registrar.messenger(), isPlayingStreamHandler.NATIVE_CHANNEL_EVENT);
     onChangeIsPlaying.setStreamHandler(new isPlayingStreamHandler());
-    final EventChannel onOneCycleDataHandler = new EventChannel(registrar.messenger(), getOneCycleDataHandler.NATIVE_CHANNEL_EVENT);
-    onOneCycleDataHandler.setStreamHandler(new getOneCycleDataHandler());
   }
 
   @Override
@@ -65,9 +61,16 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
     }else if (call.method.equals("setAutoUpdateOneCycleSample")) {
       boolean autoUpdateOneCycleSample = call.argument("autoUpdateOneCycleSample");
       soundGenerator.setAutoUpdateOneCycleSample(autoUpdateOneCycleSample);
-    }else if (call.method.equals("setFrequency")) {
+    }else if (call.method.equals("setRightEarFrequency")) {
       double frequency = call.argument("frequency");
-      soundGenerator.setFrequency((float)frequency);
+      soundGenerator.setRightEarFrequency((float)frequency);
+    }else if (call.method.equals("setLeftEarFrequency")) {
+      double frequency = call.argument("frequency");
+      soundGenerator.setLeftEarFrequency((float)frequency);
+    }else if (call.method.equals("getRightEarFrequency")) {
+      result.success(soundGenerator.getRightEarFrequency((float)frequency));
+    }else if (call.method.equals("getLeftEarFrequency")) {
+      result.success(soundGenerator.getLeftEarFrequency((float)frequency));
     }else if (call.method.equals("setWaveform")) {
       String waveType = call.argument("waveType");
       soundGenerator.setWaveform(WaveTypes.valueOf(waveType));
