@@ -105,7 +105,7 @@ public class SoundGenerator {
             audioTrack = new AudioTrack(
                     AudioManager.STREAM_MUSIC,
                     sampleRate,
-                    AudioFormat.CHANNEL_OUT_MONO,
+                    AudioFormat.CHANNEL_OUT_STEREO,
                     AudioFormat.ENCODING_PCM_16BIT,
                     minSamplesSize,
                     AudioTrack.MODE_STREAM);
