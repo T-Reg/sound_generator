@@ -87,9 +87,25 @@ class SoundGenerator {
   }
 
   /// Set Frequency
-  static void setFrequency(double frequency) async {
+  static void setLeftEarFrequency(double frequency) async {
     await _channel.invokeMethod(
-        "setFrequency", <String, dynamic>{"frequency": frequency});
+        "setLeftEarFrequency", <String, dynamic>{"frequency": frequency});
+  }
+
+    /// Set Frequency
+  static void setRightEarFrequency(double frequency) async {
+    await _channel.invokeMethod(
+        "setRightEarFrequency", <String, dynamic>{"frequency": frequency});
+  }
+
+  static double getLeftEarFrequency() {
+    final double freq = await _channel.invokeMethod('getLeftEarFrequency');
+    return freq;
+  }
+
+  static double getRightEarFrequency() {
+    final double freq = await _channel.invokeMethod('getRightEarFrequency');
+    return freq;
   }
 
   /// Set Balance Range from -1 to 1
