@@ -99,12 +99,12 @@ class SoundGenerator {
   }
 
   static double getLeftEarFrequency() {
-    final double freq = await _channel.invokeMethod('getLeftEarFrequency');
+    final double freq = _channel.invokeMethod('getLeftEarFrequency');
     return freq;
   }
 
   static double getRightEarFrequency() {
-    final double freq = await _channel.invokeMethod('getRightEarFrequency');
+    final double freq = _channel.invokeMethod('getRightEarFrequency');
     return freq;
   }
 
