@@ -98,16 +98,6 @@ class SoundGenerator {
         "setRightEarFrequency", <String, dynamic>{"frequency": frequency});
   }
 
-  static double getLeftEarFrequency() {
-    final double freq = _channel.invokeMethod('getLeftEarFrequency');
-    return freq;
-  }
-
-  static double getRightEarFrequency() {
-    final double freq = _channel.invokeMethod('getRightEarFrequency');
-    return freq;
-  }
-
   /// Set Balance Range from -1 to 1
   static void setBalance(double balance) async {
     await _channel
