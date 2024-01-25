@@ -63,10 +63,6 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
     }else if (call.method.equals("setLeftEarFrequency")) {
       double frequency = call.argument("frequency");
       soundGenerator.setLeftEarFrequency((float)frequency);
-    }else if (call.method.equals("getRightEarFrequency")) {
-      result.success(soundGenerator.getRightEarFrequency((float)frequency));
-    }else if (call.method.equals("getLeftEarFrequency")) {
-      result.success(soundGenerator.getLeftEarFrequency((float)frequency));
     }else if (call.method.equals("setWaveform")) {
       String waveType = call.argument("waveType");
       soundGenerator.setWaveform(WaveTypes.valueOf(waveType));
@@ -78,8 +74,6 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
       soundGenerator.setVolume((float)volume);
     }else if (call.method.equals("getSampleRate")) {
       result.success(soundGenerator.getSampleRate());
-    }else if (call.method.equals("refreshOneCycleData")) {
-      soundGenerator.refreshOneCycleData();
     }else {
       result.notImplemented();
     }
