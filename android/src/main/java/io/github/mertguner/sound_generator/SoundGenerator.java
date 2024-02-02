@@ -77,6 +77,15 @@ public class SoundGenerator {
         }
     }
 
+    public void setVolume(float left, float right) {
+        leftVolume = Math.max(0, Math.min(1, left));
+        rightVolume = Math.max(0, Math.min(1, right));
+
+        if (audioTrack != null) {
+            audioTrack.setStereoVolume(leftVolume, rightVolume);
+        }
+    }
+
     public void setWaveform(WaveTypes waveType) {
         if (this.waveType.equals(waveType) || (generator == null))
             return;

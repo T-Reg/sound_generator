@@ -162,7 +162,7 @@ class _MyAppState extends State<MyApp> {
                                       onChanged: (_value) {
                                         setState(() {
                                           this.frequency = _value.toDouble();
-                                          SoundGenerator.setFrequency(
+                                          SoundGenerator.setLeftEarFrequency(
                                               this.frequency);
                                         });
                                       }),
@@ -246,12 +246,6 @@ class _MyAppState extends State<MyApp> {
     SoundGenerator.onIsPlayingChanged.listen((value) {
       setState(() {
         isPlaying = value;
-      });
-    });
-
-    SoundGenerator.onOneCycleDataHandler.listen((value) {
-      setState(() {
-        oneCycleData = value;
       });
     });
 

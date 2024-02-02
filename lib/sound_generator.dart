@@ -90,8 +90,8 @@ class SoundGenerator {
   }
 
   /// Set Volume Range from 0 to 1
-  static void setVolume(double volume) async {
+  static void setVolume(double left, double right) async {
     await _channel
-        .invokeMethod("setVolume", <String, dynamic>{"volume": volume});
+        .invokeMethod("setVolume", <String, dynamic>{"left": left, "right": right});
   }
 }

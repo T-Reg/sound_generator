@@ -70,8 +70,9 @@ public class SoundGeneratorPlugin implements FlutterPlugin, MethodCallHandler {
       double balance = call.argument("balance");
       soundGenerator.setBalance((float)balance);
     }else if (call.method.equals("setVolume")) {
-      double volume = call.argument("volume");
-      soundGenerator.setVolume((float)volume);
+      double volume = call.argument("left");
+      double volume = call.argument("right");
+      soundGenerator.setVolume((float)left, (float)right);
     }else if (call.method.equals("getSampleRate")) {
       result.success(soundGenerator.getSampleRate());
     }else {
